@@ -1,3 +1,4 @@
 {
-  
-}
+"size_xpath": "//div[@name='size']//a/@data-refinement-value",
+"discount_xpath": "//div[@name='discount']//a/@href",
+"brand" : "//span[@class='cc-tile-product-brand']//text()"}

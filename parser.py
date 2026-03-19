@@ -6,16 +6,18 @@ from lxml import html
 def parser(data):
       tree=html.fromstring(data)
      
-      sizes = tree.xpath('//a[@data-refinement-id="size"]/@data-refinement-value')
-      discounts = tree.xpath('//a[@data-refinement-id="discountPercent"]/@data-refinement-value')
-      brands = tree.xpath('//a[@data-refinement-id="brand"]/@data-refinement-value')
+      sizes = tree.xpath('//div[@name="size"]//a/@data-refinement-value')
+      discounts = tree.xpath('//div[@name="discount"]//a/@href')
+      brands = tree.xpath('///span[@class="cc-tile-product-brand"]//text()')
 
-     
+     #for removing duplicates
       sizes = list(set(sizes))
       discounts = list(set(discounts))
       brands = list(set(brands))
+      #storing urls
       urls=[]
       BASE_URL="https://www.bata.com/in/men/shoes/slippers-e-flipflop/{brand}/{size}/?prefn1=discountPercent&prefv1={discount}"
+      #formatting urls
       for brand in brands:
         brand_slug = brand.lower().replace(" ", "-")   # e.g. BATA SUNSHINE → bata-sunshine
 
@@ -29,7 +31,7 @@ def parser(data):
                     discount=encoded_discount
                 )
                 urls.append(url)
-
+      print(len(urls))
       return urls         
 
    
