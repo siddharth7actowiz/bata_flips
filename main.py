@@ -8,11 +8,11 @@ def main():
     st=time.time()
     data=read_html(FILE_PATH)
     extracted_data=parser(data)
-    print(extracted_data)
+  
     con = make_connection()
     cursor = con.cursor()
 
-    create_table(cursor)
+    create_table(cursor,TABLE_NAME)
 
   
 

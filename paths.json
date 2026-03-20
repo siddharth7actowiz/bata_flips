@@ -1,4 +1,6 @@
 {
 "size_xpath": "//div[@name='size']//a/@data-refinement-value",
-"discount_xpath": "//div[@name='discount']//a/@href",
-"brand" : "//span[@class='cc-tile-product-brand']//text()"}
+"discount_xpath": "//div[@name='discount']//a/@data-refinement-value",
+"brand" : "//span[@class='cc-tile-product-brand']//text()}",
+"color":"//span[@class='cc-submenu-voice-group cc-p pb-0 text-center mt-1 font-weight-normal']"
+}
